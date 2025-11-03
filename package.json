@@ -6,6 +6,7 @@
   "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
   "scripts": {
     "build": "bash vercel-build.sh",
+    "postinstall": "npx --yes --package prisma prisma generate",
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
