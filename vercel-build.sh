@@ -1,12 +1,11 @@
 #!/bin/bash
-# Script de build personalizado para Vercel
+set -e
 
 echo "🏗 Ejecutando build en entorno Linux..."
-chmod +x ./node_modules/.bin/prisma
+# Forzar permisos de ejecución al binario de Prisma
+chmod +x ./node_modules/.bin/prisma || true
 
+# Regenerar cliente Prisma
 npx prisma generate
-echo "✅ Prisma Client generado correctamente para entorno Linux"
 
-# Si tienes un paso adicional, como TypeScript build o copiar archivos, puedes añadirlo aquí
-# Ejemplo: npm run tsc
-echo "🏗 Build completado."
+echo "✅ Prisma Client generado correctamente para entorno Linux"
