@@ -7,7 +7,7 @@
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "dev:5001": "cross-env PORT=5001 ts-node-dev --respawn --transpile-only src/index.ts",
     "dev:5002": "cross-env PORT=5002 ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "npx prisma generate && echo 'skip build'",
+    "build": "npx prisma generate && echo '✅ Prisma Client generado correctamente en entorno Linux'",
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
