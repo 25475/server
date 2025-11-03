@@ -1,0 +1,46 @@
+{
+  "name": "systray-server",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev:5001": "cross-env PORT=5001 ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev:5002": "cross-env PORT=5002 ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc -p .",
+    "start": "node dist/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "seed": "ts-node src/seed.ts",
+    "seed:data": "ts-node src/seedData.ts",
+    "seed:reset-plans": "ts-node src/seedResetPlans.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.16.2",
+    "@types/multer": "^2.0.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "nodemailer": "^6.9.4",
+    "pdfkit": "^0.13.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.4",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.9.1",
+    "@types/nodemailer": "^7.0.3",
+    "@types/pdfkit": "^0.17.3",
+    "@types/uuid": "^10.0.0",
+    "prisma": "^4.16.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.5"
+  }
+}
