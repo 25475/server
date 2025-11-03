@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
+import multer from 'multer'; // 👈 Import directo de multer
 import { upload } from '../middleware/upload';
 import { authenticateToken } from '../middleware/auth';
-
 // 🔧 Extiende el tipo Request para incluir `file`
 interface MulterRequest extends Request {
   file?: Express.Multer.File;
