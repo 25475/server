@@ -7,7 +7,7 @@
       "config": { "includeFiles": ["prisma/**", "node_modules/.prisma/**"] }
     }
   ],
-  "hooks": {
-    "build": "npx prisma generate"
-  }
+  "routes": [
+    { "src": "/(.*)", "dest": "/src/index.ts" }
+  ]
 }
