@@ -1,9 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/app.ts", "use": "@vercel/node" }
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["prisma/**", "node_modules/.prisma/**"] }
+    }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "src/app.ts" }
-  ]
+  "hooks": {
+    "build": "npx prisma generate"
+  }
 }
