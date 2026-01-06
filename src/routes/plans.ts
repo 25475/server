@@ -11,7 +11,17 @@ router.get('/', async (req, res) => {
     const plans = await prisma.plan.findMany({
       orderBy: { price: 'asc' },
     });
-    res.json(plans);
+    
+    // Construir URLs completas para las imágenes
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const plansWithFullUrls = plans.map(plan => ({
+      ...plan,
+      imageUrl: plan.imageUrl && !plan.imageUrl.startsWith('http') 
+        ? `${baseUrl}${plan.imageUrl}` 
+        : plan.imageUrl
+    }));
+    
+    res.json(plansWithFullUrls);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener planes' });
   }

@@ -21,21 +21,21 @@ async function seedData() {
   console.log('📁 Creando categorías...');
   
   const categoriesData = [
-    // Categorías Vision
-    { name: 'Cámaras IP', slug: 'camaras-ip', description: 'Cámaras de seguridad IP de alta definición', productType: 'VISION' },
-    { name: 'DVR/NVR', slug: 'dvr-nvr', description: 'Grabadores digitales y de red', productType: 'VISION' },
-    { name: 'Accesorios Vision', slug: 'accesorios-vision', description: 'Cables, conectores y más', productType: 'VISION' },
+    // Categorías Vizion
+    { name: 'Cámaras IP', slug: 'camaras-ip', description: 'Cámaras de seguridad IP de alta definición', productType: 'VIZION', imageUrl: 'https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=500&h=500&fit=crop' },
+    { name: 'DVR/NVR', slug: 'dvr-nvr', description: 'Grabadores digitales y de red', productType: 'VIZION', imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop' },
+    { name: 'Accesorios Vizion', slug: 'accesorios-vision', description: 'Cables, conectores y más', productType: 'VIZION', imageUrl: 'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&h=500&fit=crop' },
     
-    // Categorías Novatec
-    { name: 'Computadoras', slug: 'computadoras', description: 'PCs de escritorio y laptops', productType: 'NOVATEC' },
-    { name: 'Componentes', slug: 'componentes', description: 'Hardware y componentes de PC', productType: 'NOVATEC' },
-    { name: 'Periféricos', slug: 'perifericos', description: 'Mouse, teclados, monitores', productType: 'NOVATEC' },
+    // Categorías Novatek
+    { name: 'Computadoras', slug: 'computadoras', description: 'PCs de escritorio y laptops', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1587829191301-26e5b2800fc0?w=500&h=500&fit=crop' },
+    { name: 'Componentes', slug: 'componentes', description: 'Hardware y componentes de PC', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=500&fit=crop' },
+    { name: 'Periféricos', slug: 'perifericos', description: 'Mouse, teclados, monitores', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop' },
     // Nuevas categorías para los productos del adjunto
-    { name: 'Redes', slug: 'redes', description: 'Routers, mesh, accesos', productType: 'NOVATEC' },
-    { name: 'Energia', slug: 'energia', description: 'UPS, reguladores y protectores', productType: 'NOVATEC' },
-    { name: 'Cerraduras', slug: 'cerraduras', description: 'Cerraduras inteligentes', productType: 'NOVATEC' },
-    { name: 'Alarmas y CCTV', slug: 'alarmas-cctv', description: 'Kits de alarma y CCTV', productType: 'VISION' },
-    { name: 'Cableado', slug: 'cableado', description: 'Servicios y cableado estructurado', productType: 'NOVATEC' },
+    { name: 'Redes', slug: 'redes', description: 'Routers, mesh, accesos', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1633356122544-f134324ef6be?w=500&h=500&fit=crop' },
+    { name: 'Energia', slug: 'energia', description: 'UPS, reguladores y protectores', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1581092165854-40604fbb8d2b?w=500&h=500&fit=crop' },
+    { name: 'Cerraduras', slug: 'cerraduras', description: 'Cerraduras inteligentes', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop' },
+    { name: 'Alarmas y CCTV', slug: 'alarmas-cctv', description: 'Kits de alarma y CCTV', productType: 'VIZION', imageUrl: 'https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=500&h=500&fit=crop' },
+    { name: 'Cableado', slug: 'cableado', description: 'Servicios y cableado estructurado', productType: 'NOVATEK', imageUrl: 'https://images.unsplash.com/photo-1563986768609-322d641d4f5d?w=500&h=500&fit=crop' },
   ];
 
   const categories = await Promise.all(
@@ -54,7 +54,7 @@ async function seedData() {
   console.log('📦 Creando productos...');
 
   const productsData = [
-    // Productos Vision
+    // Productos Vizion
     {
       name: 'Cámara IP Domo 2MP',
       slug: 'camara-ip-domo-2mp',
@@ -62,7 +62,7 @@ async function seedData() {
       price: 89.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA EZVIZ 2MP FIJA  H1C MINI PARA INTERIOR-1761455277829-658061800.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '1920x1080', nightVision: '30m', weatherproof: 'IP67' }
     },
     {
@@ -72,11 +72,11 @@ async function seedData() {
       price: 129.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA INALAMBRICA HOMETAPOC500 PTZ TP-LINK-1761455318224-768499090.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '2560x1440', nightVision: '40m', weatherproof: 'IP67' }
     },
     
-    // Productos Novatec
+    // Productos Novatek
     {
       name: 'PC Gamer AMD Ryzen 5',
       slug: 'pc-gamer-amd-ryzen-5',
@@ -84,7 +84,7 @@ async function seedData() {
       price: 899.99,
   imageUrl: 'http://localhost:5000/uploads/ROUTER TPLINK EC-225G-1761455458265-370326457.jpg',
       categoryId: categories.find(c => c.slug === 'computadoras')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { processor: 'AMD Ryzen 5 5600X', ram: '16GB DDR4', storage: 'SSD 500GB' }
     },
     {
@@ -94,7 +94,7 @@ async function seedData() {
       price: 799.99,
   imageUrl: 'http://localhost:5000/uploads/TPLINK DECO X50 (PACK DE 1 HASTA 3 UNIDADES)-1761455350930-516380869.jpg',
       categoryId: categories.find(c => c.slug === 'computadoras')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { processor: 'Intel Core i7', ram: '16GB', display: '15.6" Full HD' }
     },
     // Productos añadidos desde Planes detallado.txt
@@ -105,7 +105,7 @@ async function seedData() {
       price: 89.0,
   imageUrl: 'http://localhost:5000/uploads/Forza Toma-1761455647418-554080986.jpg',
       categoryId: categories.find(c => c.slug === 'energia')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { tipo: 'AVR', usb: true, proteccion: 'termofusible' }
     },
     {
@@ -115,7 +115,7 @@ async function seedData() {
       price: 129.0,
   imageUrl: 'http://localhost:5000/uploads/UPS DE 600 VA 360W 6 TOMAS HIKVISION-1761455662755-576546198.jpg',
       categoryId: categories.find(c => c.slug === 'energia')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { capacidad: '600VA/360W', baterias: '12V/7Ah', salidas: 6 }
     },
     {
@@ -125,7 +125,7 @@ async function seedData() {
       price: 39.99,
   imageUrl: 'http://localhost:5000/uploads/PROTECTOR DE VOLTAJE -REFRIMATIC- POWEST-1761455604738-682186780.jpg',
       categoryId: categories.find(c => c.slug === 'energia')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { rango: '100-130VAC', capacidad: '1200W' }
     },
     {
@@ -135,7 +135,7 @@ async function seedData() {
       price: 34.99,
   imageUrl: 'http://localhost:5000/uploads/PROTECTOR DE VOLTAJE -MULTIMATIC- POWEST-1761455443715-985947326.jpg',
       categoryId: categories.find(c => c.slug === 'energia')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { rango: '100-130VAC', capacidad: '1200W' }
     },
     {
@@ -145,7 +145,7 @@ async function seedData() {
       price: 79.99,
   imageUrl: 'http://localhost:5000/uploads/ROUTER TPLINK EC-225G-1761455458265-370326457.jpg',
       categoryId: categories.find(c => c.slug === 'redes')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { wifi: 'AC1300', puertos: 'Gigabit', mesh: true }
     },
     {
@@ -155,7 +155,7 @@ async function seedData() {
       price: 49.99,
   imageUrl: 'http://localhost:5000/uploads/ROUTER TIPO CUBO TPLINK HC220 WIFI 5-1761455624944-72506334.jpg',
       categoryId: categories.find(c => c.slug === 'redes')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { wifi: 'AC1200', puertos: '1 WAN/2 LAN Gigabit' }
     },
     {
@@ -165,7 +165,7 @@ async function seedData() {
       price: 99.99,
       imageUrl: null,
       categoryId: categories.find(c => c.slug === 'redes')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { wifi: 'AX1800', mesh: true }
     },
     {
@@ -175,7 +175,7 @@ async function seedData() {
       price: 179.99,
   imageUrl: 'http://localhost:5000/uploads/TPLINK DECO M5 (PACK DE 1 HASTA 3 UNIDADES)-1761455473425-540853758.jpg',
       categoryId: categories.find(c => c.slug === 'redes')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { mesh: true, velocidad: '1267Mbps' }
     },
     {
@@ -185,7 +185,7 @@ async function seedData() {
       price: 299.99,
   imageUrl: 'http://localhost:5000/uploads/TPLINK DECO X50 (PACK DE 1 HASTA 3 UNIDADES)-1761455350930-516380869.jpg',
       categoryId: categories.find(c => c.slug === 'redes')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { wifi: 'AX3000', mesh: true }
     },
     {
@@ -195,7 +195,7 @@ async function seedData() {
       price: 59.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA UNIARCH 2MP INT UHO-S2-1761455427530-843823385.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '2MP', audio: true, ir: '10m' }
     },
     {
@@ -205,7 +205,7 @@ async function seedData() {
       price: 45.0,
   imageUrl: 'http://localhost:5000/uploads/CAMARA EZVIZ 2MP FIJA  H1C MINI PARA INTERIOR-1761455277829-658061800.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '1080p', angle: '108°', microSD: '512GB' }
     },
     {
@@ -215,7 +215,7 @@ async function seedData() {
       price: 169.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA UNIARCH 3MP EXT PTZ UHO-P1A-M3F4D-1761455262456-242238997.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '3MP', ir: '30m', ptz: true }
     },
     {
@@ -225,7 +225,7 @@ async function seedData() {
       price: 99.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA INALAMBRICA HOMETAPOC500 PTZ TP-LINK-1761455318224-768499090.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '1080p', rotacion: '360°', ip: 'IP65' }
     },
     {
@@ -235,7 +235,7 @@ async function seedData() {
       price: 29.99,
   imageUrl: 'http://localhost:5000/uploads/CAMARA INALAMBRICA INDOOR TAPO 360   C200 TP-LINK-1761455225759-172429831.jpg',
       categoryId: categories.find(c => c.slug === 'camaras-ip')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { resolution: '1080p', microSD: '128GB' }
     },
     {
@@ -245,7 +245,7 @@ async function seedData() {
       price: 149.99,
   imageUrl: 'http://localhost:5000/uploads/CERRADURA KADONIO SMART M13-1761455301952-940285731.jpg',
       categoryId: categories.find(c => c.slug === 'cerraduras')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { apertura: ['huella','pin','tarjeta','llave'], app: true }
     },
     {
@@ -255,7 +255,7 @@ async function seedData() {
       price: 199.99,
   imageUrl: 'http://localhost:5000/uploads/SISTEMAS DE ALARMA INALÃMBRICAS-1761455238733-922475980.jpg',
       categoryId: categories.find(c => c.slug === 'alarmas-cctv')?.id,
-      productType: 'VISION',
+      productType: 'VIZION',
       features: { incluye: ['sensores','sirena','control','boton de panico'] }
     },
     {
@@ -265,7 +265,7 @@ async function seedData() {
       price: null,
       imageUrl: null,
       categoryId: categories.find(c => c.slug === 'cableado')?.id,
-      productType: 'NOVATEC',
+      productType: 'NOVATEK',
       features: { descripcion: 'Instalacion y certificacion de cableado estructurado' }
     },
   ];
@@ -370,6 +370,7 @@ async function seedData() {
       name: 'Plan Estudiantil',
       description: '400 MBPS',
       price: 16.49,
+      imageUrl: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 400 Mbps',
         'Uso: streaming FullHD, teletrabajo, clases virtuales',
@@ -385,6 +386,7 @@ async function seedData() {
       name: 'Plan Estudiantil Pro',
       description: '500 MBPS',
       price: 17.99,
+      imageUrl: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 500 Mbps',
         'Uso: streaming FullHD, más demanda',
@@ -400,6 +402,7 @@ async function seedData() {
       name: 'Plan Family',
       description: '600 MBPS',
       price: 20.99,
+      imageUrl: 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 600 Mbps',
         'Uso: familia estándar, streaming 4K, domótica y cámaras',
@@ -415,6 +418,7 @@ async function seedData() {
       name: 'Plan Family Pro',
       description: '700 MBPS',
       price: 22.49,
+      imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 700 Mbps',
         'Uso: familia superior, más demanda en 4K y domótica',
@@ -430,6 +434,7 @@ async function seedData() {
       name: 'Plan Cool',
       description: '800 MBPS',
       price: 25.49,
+      imageUrl: 'https://images.unsplash.com/photo-1517694712912-d7d2c5e3a5c1?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 800 Mbps',
         'Uso: familiar, laboral, gaming; streaming hasta 8K',
@@ -445,6 +450,7 @@ async function seedData() {
       name: 'Plan Cool Pro',
       description: '900 MBPS',
       price: 26.99,
+      imageUrl: 'https://images.unsplash.com/photo-1518611505868-48510c2e022b?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 900 Mbps',
         'Uso: familiar y gaming, mayor demanda en 8K',
@@ -460,6 +466,7 @@ async function seedData() {
       name: 'Plan Gamer',
       description: '1 GB',
       price: 29.99,
+      imageUrl: 'https://images.unsplash.com/photo-1587293852122-4628eb78a371?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 1000 Mbps',
         'Uso: gaming exigente, streaming 8K en varios dispositivos',
@@ -475,6 +482,7 @@ async function seedData() {
       name: 'Plan Gamer Pro',
       description: '1.1 GB',
       price: 31.49,
+      imageUrl: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=500&h=300&fit=crop',
       features: [
         'Velocidad: 1100 Mbps',
         'Uso: usuarios exigentes, gaming sin lag y streaming 8K',

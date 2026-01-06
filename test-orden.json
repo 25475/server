@@ -1,0 +1,6 @@
+{
+  "nombreCliente": "Juan Pérez García",
+  "telefono": "5551234567",
+  "productos": "[{\"nombre\":\"Cámara HD 2MP\",\"precio\":150,\"cantidad\":2},{\"nombre\":\"Micrófono inalámbrico\",\"precio\":50,\"cantidad\":1}]",
+  "total": 350
+}

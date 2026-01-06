@@ -47,7 +47,6 @@ router.get('/slug/:slug', async (req, res) => {
 // Create product
 router.post('/', authenticateToken, async (req, res) => {
   try {
-    console.log('Datos recibidos:', req.body);
     const product = await prisma.product.create({
       data: req.body,
     });
@@ -98,6 +97,25 @@ router.delete('/:id', authenticateToken, async (req, res) => {
     res.json({ message: 'Producto eliminado' });
   } catch (error) {
     res.status(500).json({ error: 'Error al eliminar producto' });
+  }
+});
+
+// Endpoint para productos aleatorios (pública)
+
+// Endpoint para productos aleatorios (pública)
+router.get('/random', async (req, res) => {
+  try {
+    // Entre 4 y 6 productos aleatorios
+    const take = Math.floor(Math.random() * 3) + 4;
+    const productos = await prisma.product.findMany({
+      take,
+      include: { category: true },
+      orderBy: { createdAt: 'desc' }
+    });
+    res.json(Array.isArray(productos) ? productos : []);
+  } catch (error) {
+    console.error('Error al obtener productos aleatorios:', error);
+    res.status(500).json({ error: 'Error al obtener productos aleatorios', details: error });
   }
 });
 

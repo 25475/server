@@ -28,9 +28,8 @@ generator client {
 // enum ProductType {
 //   VIZION
 //   NOVATEK
-//   DOMOTICA
 // }
-// Valores válidos: "VIZION", "NOVATEK", "DOMOTICA"
+// Valores válidos: "VIZION", "NOVATEK"
 
 // enum PlanCategory {
 //   HOGAR
