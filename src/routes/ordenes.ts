@@ -5,7 +5,8 @@ import path from 'path';
 import fs from 'fs';
 import { generateOrderId } from '../utils/orderIdGenerator';
 import { sendOrderEmail } from '../services/emailService';
-const { notificarOrden } = require('../services/notificacionService');
+import { notificarOrden } from "../services/notificacionService";
+
 
 const router = Router();
 const prisma = new PrismaClient();

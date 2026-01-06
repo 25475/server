@@ -1,12 +1,14 @@
-const { getModoNotificacion } = require('../config/notificacion');
-const { enviarWhatsAppAdmin } = require('./whatsappService');
-const { sendOrderEmail } = require('./emailService');
+// @ts-ignore - JS module
+import { getModoNotificacion } from '../config/notificacion';
+// @ts-ignore - JS module
+import { enviarWhatsAppAdmin } from './whatsappService';
+import { sendOrderEmail } from './emailService';
 
 /**
  * Unifica el envío de notificaciones según configuración en .env
  * @param {Object} orden - Datos de la orden
  */
-const notificarOrden = async (orden) => {
+export const notificarOrden = async (orden: any) => {
   const modo = getModoNotificacion();
 
   console.log(`📢 Modo de notificación activo: ${modo}`);
@@ -20,12 +22,8 @@ const notificarOrden = async (orden) => {
       console.warn(`⚠️ Modo desconocido: ${modo}. Se usa Gmail por defecto.`);
       await sendOrderEmail(orden);
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('❌ Error en notificacionService:', error.message);
     throw error;
   }
-};
-
-module.exports = {
-  notificarOrden,
 };
